@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flex & Visiting Card Printing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    .hero {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1581091870627-3c2c5e85b5f6') center/cover no-repeat;
+      position: relative;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .section-padding {
+      padding: 80px 0;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      transition: 0.3s;
+    }
+
+        :root{
+        --primary:#dc3545;
+        --dark:#111;
+        --light:#f8f9fa;
+        --gradient:linear-gradient(135deg,#dc3545,#ff6a00);
+        }
+
+        .section-padding{
+        padding:100px 0;
+        }
+
+        .section-heading{
+        font-weight:700;
+        font-size:2.2rem;
+        }
+
+        .section-sub{
+        color:#6c757d;
+        max-width:600px;
+        margin:auto;
+        }
+
+        /* GLASS CARD */
+        .glass-card{
+        background:rgba(255,255,255,0.9);
+        backdrop-filter:blur(10px);
+        border-radius:18px;
+        box-shadow:0 20px 40px rgba(0,0,0,0.08);
+        transition:.4s ease;
+        }
+
+        .glass-card:hover{
+        transform:translateY(-8px);
+        box-shadow:0 30px 60px rgba(0,0,0,0.12);
+        }
+
+        /* ICON CIRCLE */
+        .icon-circle{
+        width:60px;
+        height:60px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        border-radius:50%;
+        background:var(--gradient);
+        color:#fff;
+        font-size:26px;
+        margin-bottom:20px;
+        }
+
+        /* IMAGE HOVER */
+        .work-img{
+        position:relative;
+        overflow:hidden;
+        border-radius:16px;
+        }
+
+        .work-img img{
+        transition:.6s ease;
+        }
+
+        .work-img:hover img{
+        transform:scale(1.1);
+        }
+
+        .work-overlay{
+        position:absolute;
+        inset:0;
+        background:linear-gradient(to top,rgba(0,0,0,.7),transparent);
+        opacity:0;
+        transition:.4s;
+        display:flex;
+        align-items:end;
+        padding:20px;
+        color:#fff;
+        }
+
+        .work-img:hover .work-overlay{
+        opacity:1;
+        }
+        footer a:hover {
+            color: #dc3545;
+            text-decoration: none;
+        }
+
+        footer ul li {
+            margin-bottom: 10px;
+        }
+
+        footer i {
+            transition: transform 0.3s;
+        }
+
+        footer i:hover {
+            transform: scale(1.2);
+            color: #dc3545;
+        }
+
+        </style>
+
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">Logo
+        <!-- <span class="text-danger">Zone</span> -->
+    </a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<!-- ================= HERO / BANNER ================= -->
+<section class="hero d-flex align-items-center text-center text-white" id="home" 
+         style="background: url('https://images.unsplash.com/photo-1593642532973-d31b6557fa68?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat; height:100vh; position:relative;">
+  
+  <!-- DARK OVERLAY -->
+  <div style="position:absolute; inset:0; background: rgba(0,0,0,0.6);"></div>
+
+  <!-- HERO CONTENT -->
+  <div class="container hero-content position-relative" data-aos="fade-up">
+    <h1 class="display-5 fw-bold">Flex & Visiting Card Printing</h1>
+    <p class="lead mb-4">High Quality • Fast Delivery • Affordable Prices</p>
+    <a href="#contact" class="btn btn-danger btn-lg me-2">Get Quote</a>
+    <a href="https://wa.me/919999999999" class="btn btn-success btn-lg">WhatsApp</a>
+  </div>
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+<section class="section-padding" id="about">
+  <div class="container">
+
+    <!-- Part 1: Who We Are -->
+    <div class="row align-items-center mb-5">
+      <div class="col-md-6" data-aos="fade-right">
+        <img src="https://images.unsplash.com/photo-1593642532973-d31b6557fa68?auto=format&fit=crop&w=800&q=80" 
+             class="img-fluid rounded shadow" alt="Printing">
+      </div>
+      <div class="col-md-6" data-aos="fade-left">
+        <h2 class="fw-bold mb-3">Who We Are</h2>
+        <p class="text-muted">
+          We are a professional printing service provider specializing in flex banners,
+          visiting cards, posters, flyers, and digital printing. Our mission is to provide
+          high-quality prints with fast delivery and affordable prices to help your business shine.
+        </p>
+        <p class="text-muted">
+          With years of experience and modern printing technology, we ensure every project
+          meets premium standards.
+        </p>
+      </div>
+    </div>
+
+    <!-- Part 2: Why Choose Us -->
+    <div class="row align-items-center">
+      <div class="col-md-6 order-md-2" data-aos="fade-left">
+        <img src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=800&q=80" 
+             class="img-fluid rounded shadow" alt="Printing Process">
+      </div>
+      <div class="col-md-6 order-md-1" data-aos="fade-right">
+        <h2 class="fw-bold mb-3">Why Choose Us</h2>
+        <ul class="list-unstyled text-muted fs-5">
+          <li class="mb-2">✔ Premium Quality Printing</li>
+          <li class="mb-2">✔ Fast Turnaround & Delivery</li>
+          <li class="mb-2">✔ Affordable Pricing & Packages</li>
+          <li class="mb-2">✔ Creative Custom Designs</li>
+          <li class="mb-2">✔ Friendly Local Support</li>
+        </ul>
+        <a href="#contact" class="btn btn-danger mt-3">Get In Touch</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section-padding bg-light" id="services">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="section-heading">Our Services</h2>
+      <p class="section-sub">
+        Professional printing solutions designed to make your brand stand out
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Service -->
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="glass-card p-4 h-100 text-center">
+          <div class="icon-circle">🪪</div>
+          <h5 class="fw-bold">Visiting Card Printing</h5>
+          <p class="text-muted">
+            Premium matte, glossy & laminated business cards
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="glass-card p-4 h-100 text-center">
+          <div class="icon-circle">🖼️</div>
+          <h5 class="fw-bold">Flex Banner Printing</h5>
+          <p class="text-muted">
+            High-resolution flex banners for shops & events
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="glass-card p-4 h-100 text-center">
+          <div class="icon-circle">📰</div>
+          <h5 class="fw-bold">Poster & Flyer</h5>
+          <p class="text-muted">
+            Eye-catching posters & promotional flyers
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="glass-card p-4 h-100 text-center">
+          <div class="icon-circle">🖨️</div>
+          <h5 class="fw-bold">Digital Printing</h5>
+          <p class="text-muted">
+            Fast & accurate digital print solutions
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="glass-card p-4 h-100 text-center">
+          <div class="icon-circle">🎨</div>
+          <h5 class="fw-bold">Custom Design</h5>
+          <p class="text-muted">
+            Creative designs tailored to your business
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="glass-card p-4 h-100 text-center">
+          <div class="icon-circle">🚚</div>
+          <h5 class="fw-bold">Fast Delivery</h5>
+          <p class="text-muted">
+            Quick turnaround with quality assurance
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= OUR WORK / PORTFOLIO ================= -->
+<section class="section-padding bg-light" id="gallery">
+  <div class="container">
+
+    <!-- Heading -->
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="section-heading">Our Work</h2>
+      <p class="section-sub">
+        See some of our recent flex banners, visiting cards, posters, and digital prints
+        that helped our clients stand out.
+      </p>
+    </div>
+
+    <!-- Work Grid -->
+    <div class="row g-4">
+      <!-- Work Item 1 -->
+      <div class="col-md-3" data-aos="zoom-in">
+        <div class="work-img glass-card overflow-hidden position-relative">
+          <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e" class="img-fluid" alt="Visiting Cards">
+          <div class="work-overlay d-flex flex-column justify-content-end p-3">
+            <h6 class="fw-bold">Visiting Cards</h6>
+            <p class="small text-white">Premium matte & glossy cards</p>
+            <a href="#contact" class="btn btn-sm btn-danger mt-1">Order Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Work Item 2 -->
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="100">
+        <div class="work-img glass-card overflow-hidden position-relative">
+          <img src="https://images.unsplash.com/photo-1519337265831-281ec6cc8514" class="img-fluid" alt="Flex Banners">
+          <div class="work-overlay d-flex flex-column justify-content-end p-3">
+            <h6 class="fw-bold">Flex Banners</h6>
+            <p class="small text-white">High-resolution banners for shops & events</p>
+            <a href="#contact" class="btn btn-sm btn-danger mt-1">Order Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Work Item 3 -->
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="200">
+        <div class="work-img glass-card overflow-hidden position-relative">
+          <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e" class="img-fluid" alt="Posters">
+          <div class="work-overlay d-flex flex-column justify-content-end p-3">
+            <h6 class="fw-bold">Posters</h6>
+            <p class="small text-white">Eye-catching posters for events & promotions</p>
+            <a href="#contact" class="btn btn-sm btn-danger mt-1">Order Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Work Item 4 -->
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="300">
+        <div class="work-img glass-card overflow-hidden position-relative">
+          <img src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead" class="img-fluid" alt="Digital Prints">
+          <div class="work-overlay d-flex flex-column justify-content-end p-3">
+            <h6 class="fw-bold">Digital Prints</h6>
+            <p class="small text-white">Fast and accurate digital printing solutions</p>
+            <a href="#contact" class="btn btn-sm btn-danger mt-1">Order Now</a>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /row -->
+
+    <!-- Optional CTA -->
+    <div class="text-center mt-5" data-aos="fade-up">
+      <a href="#contact" class="btn btn-danger btn-lg">View All Projects / Get a Quote</a>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ================= PRICING ================= -->
+<section class="section-padding" id="pricing">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="section-heading">Pricing Plans</h2>
+      <p class="section-sub">
+        Transparent and affordable pricing for our printing services
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Card 1 -->
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="card glass-card text-white overflow-hidden">
+          <div class="position-relative">
+            <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e" class="card-img-top" alt="Visiting Card">
+            <div class="position-absolute top-0 start-0 w-100 h-100" 
+                 style="background: rgba(0,0,0,0.5); backdrop-filter: blur(3px);"></div>
+            <div class="position-absolute bottom-0 start-0 p-4">
+              <h5 class="fw-bold">Visiting Cards</h5>
+              <p class="fw-bold text-danger display-6">₹300+</p>
+              <a href="#contact" class="btn btn-danger btn-sm mt-2">Get Quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card glass-card text-white overflow-hidden">
+          <div class="position-relative">
+            <img src="https://images.unsplash.com/photo-1519337265831-281ec6cc8514" class="card-img-top" alt="Flex Banner">
+            <div class="position-absolute top-0 start-0 w-100 h-100" 
+                 style="background: rgba(0,0,0,0.5); backdrop-filter: blur(3px);"></div>
+            <div class="position-absolute bottom-0 start-0 p-4">
+              <h5 class="fw-bold">Flex Banner</h5>
+              <p class="fw-bold text-danger display-6">₹25 / sq.ft</p>
+              <a href="#contact" class="btn btn-danger btn-sm mt-2">Get Quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card glass-card text-white overflow-hidden">
+          <div class="position-relative">
+            <img src="https://images.unsplash.com/photo-1519337265831-281ec6cc8514" class="card-img-top" alt="Posters">
+            <div class="position-absolute top-0 start-0 w-100 h-100" 
+                 style="background: rgba(0,0,0,0.5); backdrop-filter: blur(3px);"></div>
+            <div class="position-absolute bottom-0 start-0 p-4">
+              <h5 class="fw-bold">Posters</h5>
+              <p class="fw-bold text-danger display-6">₹20+</p>
+              <a href="#contact" class="btn btn-danger btn-sm mt-2">Get Quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /row -->
+  </div>
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+<section class="section-padding bg-light" id="contact">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-5" data-aos="fade-up">Contact Us</h2>
+
+    <div class="row g-4">
+      <!-- CONTACT FORM -->
+      <div class="col-md-6" data-aos="fade-right">
+        <form action="send-mail.php" method="POST" class="card p-4 shadow">
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" name="name" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Phone</label>
+            <input type="text" name="phone" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" name="email" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Message</label>
+            <textarea name="message" rows="4" class="form-control" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-danger w-100">
+            Send Enquiry
+          </button>
+        </form>
+      </div>
+
+      <!-- MAP + DETAILS -->
+      <div class="col-md-6" data-aos="fade-left">
+        <div class="card p-3 shadow">
+          <iframe
+            src="https://www.google.com/maps?q=Delhi,India&output=embed"
+            width="100%"
+            height="300"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy">
+          </iframe>
+
+          <div class="mt-3 text-center">
+            <p class="mb-1"><strong>📞 Phone:</strong> +91 99999 99999</p>
+            <p class="mb-1"><strong>📍 Address:</strong> SAS Nagar Mohali</p>
+            <a href="https://wa.me/919999999999" class="btn btn-success mt-2">
+              Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<!-- ================= FOOTER ================= -->
+<footer class="bg-dark text-white pt-5 pb-3">
+  <div class="container">
+    <div class="row g-4">
+      <!-- Logo & About -->
+      <div class="col-md-4" data-aos="fade-up">
+        <h4 class="fw-bold">Logo
+            <!-- <span class="text-danger">Zone</span> -->
+        </h4>
+        <p class="text-muted">
+          High-quality flex & visiting card printing services. Fast delivery & affordable prices for your business.
+        </p>
+      </div>
+
+      <!-- Quick Menu -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <h5 class="fw-bold mb-3">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#home" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="#about" class="text-white text-decoration-none">About</a></li>
+          <li><a href="#services" class="text-white text-decoration-none">Services</a></li>
+          <li><a href="#pricing" class="text-white text-decoration-none">Pricing</a></li>
+          <li><a href="#gallery" class="text-white text-decoration-none">Gallery</a></li>
+          <li><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <h5 class="fw-bold mb-3">Contact</h5>
+        <p class="mb-1">📞 +91 99999 99999</p>
+        <p class="mb-1">📍 SAS Nagar Mohali</p>
+        <div class="mt-2">
+          <a href="#" class="text-white me-3"><i class="bi bi-facebook fs-5"></i></a>
+          <a href="#" class="text-white me-3"><i class="bi bi-instagram fs-5"></i></a>
+          <a href="#" class="text-white me-3"><i class="bi bi-whatsapp fs-5"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="bg-secondary mt-4">
+    <div class="text-center mt-3">
+      <p class="mb-0">&copy; 2026 PrintZone | All Rights Reserved</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+</script>
+
+</body>
+</html>
